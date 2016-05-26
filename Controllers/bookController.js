@@ -15,7 +15,7 @@ var bookController = function(Book){
 	}
 
 	var get = function(req,res){
-		console.log("get");
+		console.log("get..");
         var query = {};
         if (req.query.genre) {
             query.genre = req.query.genre;

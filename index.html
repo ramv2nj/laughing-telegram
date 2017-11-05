@@ -1,0 +1,50 @@
+<html>
+<head>
+  <title>Test App</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.8/js/jquery.dataTables.min.js"></script>
+  <script src="main.js"></script> 
+</head>
+<body onload="getBooks()">
+<div class="row">
+    <div class="col-sm-6">
+         <div class="container">
+             <form id="add-book">
+                 <br/><br/>
+                 <div class="form-group">
+                         <label>Title</label>
+                          <input type="text" id="title" /><br/><br/>
+                 </div>
+                 <div class="form-group">
+                         <label>Genre</label>
+                         <input type="text" id="genre" /><br/><br/>
+                  </div>
+                 <div class="form-group">
+                         <label>Author</label> 
+	                      <input type="text" id="author" /><br/><br/>
+                 </div>
+                 <div class="form-group">
+                      <label>Read</label> 
+                      <input type="checkbox" id="read"><br/><br/>
+                 </div>
+                 <div class="row">
+                     <div class="col-sm-3">
+                      <input type="submit" name="Submit" value="Add Book" class ="btn btn-primary"/><br/><br/>
+                     </div>
+                 </div>
+              </form>
+              <br />
+              <div class="row">
+                  <div id="books">              
+              </div>
+             </div>
+         </div>
+         
+    </div>
+
+</div>
+
+</body>
+</html>

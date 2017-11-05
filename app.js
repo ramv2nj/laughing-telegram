@@ -15,7 +15,7 @@ var Book = require('./models/bookModel');
 
 var app = express();
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 27017;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

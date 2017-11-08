@@ -30,7 +30,7 @@ var SampleApp = function() {
             //  Log errors on OpenShift but continue w/ 127.0.0.1 - this
             //  allows us to run/test the app locally.
             console.warn('No OPENSHIFT_NODEJS_IP var, using 127.0.0.1');
-            self.ipaddress = "127.0.0.1";
+            self.ipaddress = "0.0.0.0";
         };
     };
 
@@ -115,15 +115,15 @@ var SampleApp = function() {
     self.initializeServer = function() {
         self.createRoutes();
         self.app = express();
-        
+
         //  Add handlers for the app (from the routes).
         /*
         for (var r in self.routes) {
             self.app.get(r, self.routes[r]);
         }*/
-        
+
         var connection_string = '';
-        
+
         if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
             connection_string = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
             process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
@@ -131,14 +131,14 @@ var SampleApp = function() {
             process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
             process.env.OPENSHIFT_APP_NAME;
         }
-        
+
         console.log('mongodb conn string: ' + connection_string);
-        
+
         //var db = mongoose.connect('mongodb://' + process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
         //        process.env.OPENSHIFT_MONGODB_DB_PORT+'/laughtelegram');
-        
+
         var db = mongoose.connect(connection_string);
-        
+
         var Book = require('./models/bookModel');
 
         self.app.use(bodyParser.json());
@@ -146,7 +146,7 @@ var SampleApp = function() {
 
         self.bookRouter = require('./Routes/bookRoutes')(Book);
         self.app.use('/api/books', self.bookRouter);
-        
+
     };
 
 
